@@ -28,6 +28,13 @@ var Question = React.createClass({
     this.setState({ prompted: true });
   },
 
+  onAnswerClick: function(choice) {
+    return function() {
+      this.props.onAnswer(choice);
+      this.setState({ prompted: false });
+    }.bind(this);
+  },
+
   renderPrompt: function(prompt) {
     return (
       <section className='Question' onClick={ this.onPromptClick }>
@@ -42,10 +49,10 @@ var Question = React.createClass({
       <section className='Answers'>
         <p>Tap corners to select answer</p>
         <div className='Options'>
-          <a className='Answer-nw'>{ options[0] }</a>
-          <a className='Answer-ne'>{ options[1] }</a>
-          <a className='Answer-sw'>{ options[2] }</a>
-          <a className='Answer-se'>{ options[3] }</a>
+          <a className='Answer-nw' onClick={ this.onAnswerClick(0) } >{ options[0] }</a>
+          <a className='Answer-ne' onClick={ this.onAnswerClick(1) } >{ options[1] }</a>
+          <a className='Answer-sw' onClick={ this.onAnswerClick(2) } >{ options[2] }</a>
+          <a className='Answer-se' onClick={ this.onAnswerClick(3) } >{ options[3] }</a>
         </div>
       </section>
     );
@@ -71,6 +78,14 @@ var App = React.createClass({
             'Self-teach',
             'Undecided or none'
           ]
+        },{
+          prompt: 'Which of the following work environments appeals to you most?',
+          options: [
+            'Traveling to different locations',
+            'Collaborative, open office architecture',
+            'Private work-area with fewer interactions',
+            'Outdoor (no office)'
+          ]
         }
       ]
     };
@@ -81,12 +96,19 @@ var App = React.createClass({
   },
 
   onAnswer: function(choice) {
-    
+    var question = this.getQuestion();
+    var newAnswer = {
+      prompt: question.prompt,
+      answer: question.options[choice]
+    };
+    this.setState({
+      answers: this.state.answers.concat([ newAnswer ]),
+      remainingQuestions: this.state.remainingQuestions.slice(1)
+    });
   },
 
   getQuestion: function() {
-    var qs = this.state.remainingQuestions;
-    return qs.length ? qs[qs.length - 1] : undefined;
+    return this.state.remainingQuestions[0];
   },
 
   render: function() {
