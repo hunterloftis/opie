@@ -1,0 +1,26 @@
+{
+  "name": "opie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hunterloftis/opie.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hunterloftis/opie/issues"
+  },
+  "homepage": "https://github.com/hunterloftis/opie#readme",
+  "dependencies": {
+    "serve": "1.4.0"
+  }
+}
