@@ -79,6 +79,7 @@ body {
   height: 100%;
   text-align: center;
   padding-top: 150px;
+  cursor: pointer;
 }
 
 .Question-prompt {
@@ -110,7 +111,7 @@ body {
 .Options {
   position: absolute;
   top: 20px;
-  bottom: 0;
+  bottom: 10px;
   left: 0;
   right: 0;
 }
@@ -123,28 +124,114 @@ body {
   border: solid 10px #fff;
   padding: 10px;
   font-size: 18px;
+  font-weight: 400;
+  color: #333;
+  cursor: pointer;
 }
 
-.Answer-nw {
+a.Answer-nw {
   left: 0;
   top: 0;
   background: #ffc;
 }
 
-.Answer-ne {
+a.Answer-ne {
   left: 50%;
   top: 0;
   background: #fcc;
 }
 
-.Answer-sw {
+a.Answer-sw {
   left: 0;
   top: 50%;
+  padding-top: 70%;
   background: #cfc;
 }
 
-.Answer-se {
+a.Answer-se {
   left: 50%;
   top: 50%;
+  padding-top: 70%;
   background: #ccf;
+}
+
+.CompletedCircle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 180px;
+  height: 180px;
+  margin-left: -90px;
+  margin-top: -90px;
+  border-radius: 50%;
+  background: #fff;
+  border: solid 8px #ddd;
+  box-shadow: 0 0 0 7px #fff;
+  text-align: center;
+  padding-top: 20px;
+  cursor: pointer;
+}
+
+.CompletedCircle > p {
+  margin: 10px 0;
+  padding: 0;
+}
+
+.CompletedCircle-question {
+  color: #909;
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.CompletedCircle-label {
+  color: #909;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.CompletedCircle-value {
+  color: #bbb;
+  font-size: 16px;
+}
+
+.CompletedCircle-svg {
+  position: absolute;
+  left: -9px;
+  top: -9px;
+  width: 180px;
+  height: 180px;
+}
+
+.Recommendation {
+  color: #000;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.Recommendation > img {
+  width: 200px;
+  height: 200px;
+  background: #909;
+  border-radius: 50%;
+}
+
+.Recommendation > h1 {
+  color: #39f;
+  font-size: 36px;
+  margin: 20px 0 10px 0;
+  font-weight: 100;
+}
+
+.Recommendation > h2 {
+  font-size: 12px;
+  margin: 10px 0;
+  font-weight: 100;
+}
+
+.Recommendation > p {
+  padding: 0 30px;
+  line-height: 2;
 }
